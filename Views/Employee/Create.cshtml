@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+
+@model EmployeeDepartmentManagement.ViewModels.EmployeeCreateViewModel
+
+<h2>Add New Employee</h2>
+
+<form asp-action="CreateEmployee" method="post">
+
+    <div>
+        <label asp-for="Name"></label>
+
+        <input asp-for="Name" />
+
+        <span asp-validation-for="Name"></span>
+    </div>
+
+
+    <div>
+        <label asp-for="Email"></label>
+
+        <input asp-for="Email" />
+
+        <span asp-validation-for="Email"></span>
+    </div>
+
+
+    <div>
+        <label asp-for="Salary"></label>
+
+        <input asp-for="Salary" />
+
+        <span asp-validation-for="Salary"></span>
+    </div>
+
+
+    <div>
+        <label asp-for="DepartmentId"></label>
+
+        <select asp-for="DepartmentId"
+                asp-items="@(new SelectList(
+                                ViewBag.Departments,
+                                "Id",
+                                "Name"))">
+
+            <option value="0">
+                -- Select Department --
+            </option>
+
+        </select>
+
+        <span asp-validation-for="DepartmentId"></span>
+    </div>
+
+
+    <button type="submit">
+        Create
+    </button>
+
+</form>
+
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

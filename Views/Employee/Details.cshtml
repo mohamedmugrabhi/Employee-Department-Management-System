@@ -1,0 +1,51 @@
+﻿@model EmployeeDepartmentManagement.Models.Employee
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<h1>Employee Details</h1>
+
+<hr />
+
+<div>
+
+    <p>
+        <strong>Id:</strong>
+        @Model.Id
+    </p>
+
+    <p>
+        <strong>Name:</strong>
+        @Model.Name
+    </p>
+
+    <p>
+        <strong>Email:</strong>
+        @Model.Email
+    </p>
+
+    <p>
+        <strong>Salary:</strong>
+        @Model.Salary
+    </p>
+
+    <p>
+        <strong>Department:</strong>
+        @Model.Department?.Name
+    </p>
+
+</div>
+
+<br />
+
+<a asp-action="Edit"
+   asp-route-id="@Model.Id">
+    Edit
+</a>
+
+|
+
+<a asp-action="GetAll">
+    Back to List
+</a>
